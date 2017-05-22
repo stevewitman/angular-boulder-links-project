@@ -304,12 +304,19 @@ Generate another component called `links`
 ng g c links
 ```
 
-You can't see the paragraph "link works!" because it is behind the navbar right now. Lets fix that by adding a global style to `styles.css`
+Add this component to `app.component.html`
+
+```
+<app-links></app-links>
+```
+
+You can't see the paragraph "links works!" because it is behind the navbar right now. Lets fix that by adding a global style to `styles.css`
 
 ```
 body {
     padding-top: 60px;
 }
+```
 
 In the LinksComponent class define an array of link objects, each with a name and a url property in `links.component.ts`
 
@@ -362,6 +369,12 @@ links = [
     {name: 'Firebase', url: 'https://firebase.com'},
     {name: 'Bootstrap', url: 'https://getbootstrap.com'},
 ];
+```
+
+Remove the links array from `links.component.ts` and just leave ...
+
+```
+links;
 ```
 
 Back in `links.component.ts` lets import the service, inject it into the constructor .and assign it to the links property in the OnInit() method
