@@ -409,7 +409,7 @@ Sign up for a [Firebase](https://firebase.google.com/) account
 
 Install [angularfire2](https://github.com/angular/angularfire2) (Before you start installing AngularFire2, make sure you have latest version of angular-cli installed. See [installation instructions](https://github.com/angular/angularfire2/blob/master/docs/1-install-and-setup.md).
 
-Install AngularFire 2 and Firebase
+Install AngularFire 2 and Firebase (and promise-polyfill)
 
 ```
 npm install angularfire2 firebase --save

@@ -1,16 +1,18 @@
 import { Injectable } from '@angular/core';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 @Injectable()
 export class LinksService {
 
-  links = [
-    {name: 'Angular', url: 'https://angular.io/'},
-    {name: 'Angular Style Guide', url: 'https://angular.io/docs/ts/latest/guide/style-guide.html'},
-    {name: 'ngDoc', url: 'http://ngdoc.io/'},
-    {name: 'Firebase', url: 'https://firebase.com'},
-    {name: 'Bootstrap', url: 'https://getbootstrap.com'},
-  ];
+  links;
 
-  constructor() { }
+  constructor(db: AngularFireDatabase) {
+    this.links = db.list('/links');
+  }
+
+  addLink(name, url) {
+      this.links.push({name: name.value, url: url.value})
+      name.value = url.value = '';
+  }
 
 }

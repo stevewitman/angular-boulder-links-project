@@ -17,4 +17,8 @@ export class LinksComponent implements OnInit {
      this.links = this._linksService.links;
   }
 
+  addLink(name, url) {
+    this._linksService.addLink(name, url);
+  }
+
 }
