@@ -1,13 +1,13 @@
 # Intro to Angular 4
 
 ```
-ng new introToAngular
+ng new intro-angular
 ```
 
 Change into that directory
 
 ```
-cd ablinks
+cd intro-angular
 ```
 
 ```
@@ -407,6 +407,30 @@ providers: [LinksService],
 
 Sign up for a [Firebase](https://firebase.google.com/) account
 
+Add a new project in Firebase (I called mine 'ablinks')
+
+In the Firebase console change database rules from 
+
+```
+{
+  "rules": {
+    ".read": "auth != null",
+    ".write": "auth != null"
+  }
+}
+```
+
+to ... and be sure to click PUBLISH
+
+```
+{
+  "rules": {
+    ".read": true,
+    ".write": true
+  }
+}
+```
+
 Install [angularfire2](https://github.com/angular/angularfire2) (Before you start installing AngularFire2, make sure you have latest version of angular-cli installed. See [installation instructions](https://github.com/angular/angularfire2/blob/master/docs/1-install-and-setup.md).
 
 Install AngularFire 2 and Firebase (and promise-polyfill)
@@ -426,7 +450,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 ```
 
-Import those modules in `app.module.ts`
+Add these modules to the @NgModule imports array in `app.module.ts`
 
 ```
 AngularFireModule.initializeApp(),
